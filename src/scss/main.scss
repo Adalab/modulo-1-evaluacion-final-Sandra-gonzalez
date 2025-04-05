@@ -115,22 +115,17 @@ $white: #ffffff;
 
 .main {
   display: grid; /* Activamos CSS Grid */
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(250px, 1fr)
-  ); /* Las columnas se ajustarán automáticamente */ /* Espacio entre los elementos */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }
 
 .main__articles {
-  background-color: $color-gris; /* Fondo gris claro para cada artículo */
-  padding: 10px;
+  background-color: $color-gris;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin: 0;
-  height: auto; /* Altura según el contenido */
-  max-width: 100%;
+  height: auto;
+  padding: 30px;
 }
 .main__titulo__organizado {
   background-color: $color-gris;
@@ -155,6 +150,12 @@ $white: #ffffff;
   font-size: 24px;
   color: $color-verde;
   margin-bottom: 20px;
+}
+.main__articles__grupo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .main__envio {
@@ -264,72 +265,114 @@ a img {
   }
 }
 @media screen and (min-width: 900px) {
-  .header__menu {
-    display: none; /* Ocultamos el menú en pantallas pequeñas */
-  }
   .header {
     display: flex;
     flex-direction: column;
-    align-items: flex-start !important; /* Asegura que todo se alinee a la izquierda */
-    text-align: left !important;
-    padding-left: 50px; /* Ajusta la separación desde el borde izquierdo */
-  }
-  .header__logo {
-    position: absolute;
-    left: 50%;
-    top: 5%;
-    transform: translateX(-50%);
-  }
-  .header__logo img {
-    display: flex;
-    align-items: center;
-  }
-  .scrolled .header__logo img {
-    opacity: 0;
-    transform: translateY(-20px);
-    pointer-events: none;
-  }
+    align-items: flex-start !important;
+    padding-left: 50px;
 
-  .header__contenedor {
-    margin-top: 80px;
-    width: 100%;
-    display: flex;
-    justify-content: center; /* Centra los elementos dentro de este contenedor */
-    align-items: center; /* Alinea el contenido verticalmente */
-  }
+    .header__menu {
+      display: flex;
+      align-items: flex-start;
+      padding-left: 200px;
+      display: none;
+    }
+    .header__logo {
+      position: absolute;
+      width: 300px;
+      left: 50%;
+      top: 5%;
+    }
+    .header__logo img {
+      display: flex;
+      align-items: center;
+      width: 213px !important;
+      height: 96px !important;
+    }
+    .scrolled .header__logo img {
+      opacity: 0;
+      transform: translateY(-20px);
+      pointer-events: none;
+    }
 
-  .header__title {
-    margin-top: 150px;
-    display: inline-block;
-    width: 250px; /* Ajusta según el diseño */
-    text-align: center;
-  }
+    .header__contenedor {
+      margin-top: 80px;
+      width: 100%;
+      display: flex;
+      align-items: center; /* Alinea el contenido verticalmente */
+    }
 
-  .header__title h1 {
-    font-size: 36px !important;
-    margin-left: 68%;
-    display: block; /* Asegura que el h1 se comporte como un bloque */
-  }
+    .header__title {
+      margin-top: 150px;
+      display: inline-block;
 
-  .header__boton {
-    display: flex;
-    justify-content: flex-start;
-    margin-left: 20%;
-    width: auto;
+      text-align: center;
+    }
+
+    .header__title h1 {
+      display: flex;
+      flex-direction: column;
+      font-size: 36px !important;
+      margin-left: 40%;
+    }
+    .linea-uno,
+    .linea-dos {
+      display: block;
+    }
+
+    .header__boton {
+      display: flex;
+      justify-content: flex-start;
+      width: auto;
+      margin-left: 13%;
+    }
   }
   .main {
     display: flex;
     flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .main__articles__grupo {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .main__imagen__container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+  .main__imagen__container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
   }
   .footer {
+    padding-top: 20px;
+  }
+  .imagen .footer {
     display: flex;
     flex-direction: row; /* Los elementos dentro del footer estarán en fila */
     justify-content: space-between; /* Espaciado entre las secciones del footer */
     align-items: center;
   }
+
   .footer__lista__enlaces {
     display: flex;
     flex-direction: row; /* Los enlaces estarán en fila */
+    gap: 6rem;
+  }
+
+  .footer__lista__enlaces h1 {
+    font-size: 1.5rem; /* Aumenta el tamaño de las cabeceras dentro de las columnas */
+  }
+
+  .footer__links a {
+    font-size: 1.2rem; /* Aumenta el tamaño de los enlaces */
   }
   .footer__links {
     list-style: none;
@@ -338,98 +381,58 @@ a img {
   }
   .footer__imagenes__redes {
     display: flex;
-    justify-content: center;
     flex-direction: row; /* Las imágenes de redes sociales estarán en fila */
     gap: 10px; /* Espaciado entre las imágenes */
     margin-top: 10px;
   }
   .footer_imagenes_flecha {
     display: flex;
-    justify-content: center; /* Centra la flecha */
     width: 100%;
-    margin-top: 20px;
   }
 }
 @media screen and (min-width: 1728px) {
+  .header__menu {
+    display: block !important;
+  }
+  .header__logo {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+  }
   .header__imagenes {
     display: none;
   }
-  .header__contenedor {
-    direction: sticky;
-  }
-  .header__menu {
-    display: flex; /* Mostramos el menú de navegación en pantallas grandes */
-    justify-content: flex-start; /* Alineamos los elementos del menú hacia la izquierda */
-    align-items: center;
-    gap: 30px; /* Espacio entre los enlaces del menú */
-    padding-left: 200px;
-
-    .header__logo {
-      margin-left: 20px; /* Agregamos un margen a la izquierda del logo */
-      flex-grow: 0; /* Asegura que el logo no crezca */
-      display: flex;
-      justify-content: flex-start; /* Alinea el logo a la izquierda */
-    }
-  }
-  .header__menu ul {
-    list-style: none; /* Eliminamos los puntos del menú */
-    padding: 0;
+  .header__menu-list {
+    list-style: none;
+    display: flex; /* Muestra los elementos en fila */
     margin: 0;
-    display: flex; /* Usamos flexbox para que los elementos estén en fila */
+    padding: 0;
   }
-  .header__menu li {
-    margin: 0 10px; /* Espaciado entre los elementos del menú */
+  .header__menu-item {
+    margin-right: 30px; /* Ajusta el espaciado entre los elementos */
   }
-  .header__menu a {
+
+  .header__menu-list a {
     text-decoration: none;
     color: $color-verde; /* Color de los enlaces */
     font-size: 26px;
     font-weight: normal;
   }
+  .linea-uno,
+  .linea-dos {
+    display: block;
+    padding-left: 50px;
+    font-size: 50px;
+  }
 
-  .header__menu a:hover {
+  .linea-dos {
+    margin-top: 10px;
+  }
+  .header__menu-list a:hover {
     color: #ff975a; /* Color al pasar el mouse sobre los enlaces */
   }
-
-  .header__boton {
-    margin-left: 150px; /* Espacio entre el título y el botón */
-  }
-
-  .main__container {
-    display: flex; /* Alinea las dos secciones en una fila */
-    justify-content: space-between; /* Alinea las secciones con espacio entre ellas */
-    gap: 20px; /* Añade espacio entre las secciones */
-  }
-
-  /* Las dos secciones dentro del contenedor */
-  .main__disfruta,
-  .main__imagen__container {
-    flex: 1; /* Hace que cada sección ocupe el 50% del espacio disponible */
-    box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
-  }
-
-  /* Ajuste de la imagen */
-  .main__imagen__container img {
-    width: 100%; /* La imagen ocupa el 100% del ancho de su contenedor */
-    height: auto; /* Mantiene la relación de aspecto */
-    object-fit: cover; /* Ajusta la imagen para que cubra el contenedor sin distorsionarse */
-    object-position: center; /* Centra la imagen dentro de su contenedor */
-  }
-
-  /* Estilo para el título y el párrafo en .main__disfruta */
-  .main__disfruta h2 {
-    font-size: 32px; /* Tamaño del título */
-    margin-bottom: 10px;
-  }
-
-  .main__disfruta p {
-    font-size: 18px; /* Tamaño del párrafo */
-    margin-bottom: 20px;
-  }
-
-  /* Estilo para el botón de compra */
   .header__boton__compra {
-    background-color: green; /* Color de fondo del botón */
+    background-color: $color-verde; /* Color de fondo del botón */
     color: white; /* Color del texto del botón */
     padding: 10px 20px; /* Espaciado dentro del botón */
     text-decoration: none; /* Sin subrayado en el enlace */
@@ -437,6 +440,34 @@ a img {
   }
 
   .header__boton__compra:hover {
-    background-color: darkgreen; /* Cambia el color al pasar el mouse */
+    background-color: orange; /* Cambia el color al pasar el mouse */
+  }
+  .main__articles__grupo {
+    background-color: $color-gris;
+  }
+
+  .main__container {
+    padding: 4rem;
+  }
+  .main__fila {
+    flex-direction: row; /* Asegura que los elementos estén en fila */
+  }
+
+  .main__disfruta,
+  .main__imagen__container {
+    flex: 1; /* Ambos elementos ocuparán la mitad del espacio disponible */
+    max-width: 50%; /* Limita el ancho a 50% */
+  }
+
+  .footer__lista__enlaces {
+    gap: 15rem;
+    padding-top: 50px;
+  }
+  .footer__lista__enlaces h1 {
+    font-size: 2rem; /* Aumenta el tamaño del título */
+  }
+
+  .footer__lista__enlaces a {
+    font-size: 1.5rem; /* Aumenta el tamaño de los enlaces */
   }
 }
