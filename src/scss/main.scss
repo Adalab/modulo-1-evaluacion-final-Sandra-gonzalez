@@ -3,51 +3,31 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 /* Variables de colores */
 $color-verde: #0c474b;
 $color-naranja: #ff975a;
 $color-gris: #f0ebe5;
 $color-h1: #f0ebe5;
 $white: #ffffff;
+:root {
+  /* Fuentes */
+  $font-poppins: "Poppins", sans-serif;
+  font-size: 16px;
+  /* Tamaños */
+  h1 {
+    font-size: 20px; /* Tamaño fijo para h1 */
+    margin: 0;
+  }
+  h2 {
+    font-size: 18px; /* Tamaño fijo para h2 */
+    margin: 0;
+  }
 
-/* Fuentes */
-$font-poppins: "Poppins", sans-serif;
-
-/* Tamaños de encabezados */
-h1 {
-  font-size: 20px;
-  margin: 0;
-}
-
-h2 {
-  font-size: 18px;
-  margin: 0;
-}
-
-h3 {
-  font-size: 14px;
-  margin: 0;
-}
-$color-verde: #0c474b;
-$color-naranja: #ff975a;
-$color-gris: #f0ebe5;
-$color-h1: #f0ebe5;
-$white: #ffffff;
-
-/* Tamaños */
-h1 {
-  font-size: 20px; /* Tamaño fijo para h1 */
-  margin: 0;
-}
-
-h2 {
-  font-size: 18px; /* Tamaño fijo para h2 */
-  margin: 0;
-}
-
-h3 {
-  font-size: 14px; /* Tamaño fijo para h3 */
-  margin: 0;
+  h3 {
+    font-size: 14px; /* Tamaño fijo para h3 */
+    margin: 0;
+  }
 }
 .header {
   background-image: url("../images/header.jpg");
@@ -61,10 +41,17 @@ h3 {
   justify-content: center;
   text-align: center;
   width: 100%;
-  height: 100vh; /* Hacemos que el header ocupe todo el alto de la pantalla */
-  box-sizing: border-box; /* Incluye padding y border en el ancho y alto */
-  /* Contenedor de las imágenes (hamburguesa y logo) */
+  height: 100vh; /*el header ocupe todo el alto de la pantalla */
+  box-sizing: border-box;
 
+  .header__logo img {
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    height: auto;
+    margin-bottom: 180px;
+    transition: opacity 0.5s ease-in-out;
+  }
   .header__contenedor {
     display: flex;
     justify-content: space-between;
@@ -77,14 +64,13 @@ h3 {
     top: 0; /* Se queda pegado en la parte superior */
     z-index: 1000; /* Asegura que esté por encima de otros elementos */
   }
-  /* Las imágenes dentro del contenedor */
 
   .header__imagenes img {
     height: auto;
     justify-content: flex-start; /* Alinea la hamburguesa a la izquierda */
     width: 50px;
     position: fixed;
-    top: 10px;
+    top: 50px;
     .header__logo img {
       width: 50px; /* Ajusta el tamaño si es necesario */
       height: auto;
@@ -146,6 +132,31 @@ h3 {
   height: auto; /* Altura según el contenido */
   max-width: 100%;
 }
+.main__titulo__organizado {
+  background-color: $color-gris;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 50px;
+  color: $color-verde;
+  font-size: 24px;
+  font-weight: bold;
+}
+.linea1 {
+  font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 5px;
+  margin-top: 30px;
+}
+
+.linea2 {
+  font-weight: bold;
+  font-size: 24px;
+  color: $color-verde;
+  margin-bottom: 20px;
+}
+
 .main__envio {
   background-color: $color-naranja; /* Fondo naranja */
   display: flex; /* Usamos flexbox para alinear los elementos */
@@ -196,58 +207,57 @@ h3 {
   h1 {
     color: $color-gris;
     text-align: left; // Alinea el contenido de cada bloque a la izquierda
-  }
-
-  .footer__links {
-    color: $color-gris;
-    flex-direction: column;
-    list-style: none;
-    padding: 0;
-    justify-content: center;
-    font-weight: normal;
-    font-size: 12px;
-    /* Aplica el color directamente a los enlaces */
-    a {
-      color: $color-gris;
-      text-decoration: none; /* Elimina el subrayado */
-      transition: color 0.3s ease;
-    }
-  }
-  .footer__lista__enlaces {
-    color: $color-gris;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start; // Centra los elementos en el eje transversal
-    padding-left: 100px;
-    gap: 20px;
-
-    .footer__imagenes__redes {
-      display: flex;
-      justify-content: left;
-      flex-direction: row;
-      gap: 10px;
-      margin-top: 10px;
-    }
-    a img {
-      width: 30px;
-      height: 30px;
-    }
-    .footer_imagenes_flecha {
-      display: flex;
-      justify-content: right; // Alinea el contenido (imagen) a la derecha
-      justify-content: flex-end; /* Alinea el contenido (imagen) a la derecha */
-      width: 100%; /* Ocupa todo el ancho del contenedor padre */
-      padding-right: 20px; /* Ajusta el espacio desde la derecha si es necesario */
-
-      height: auto;
-      &:hover {
-        transform: scale(1.1); // Efecto de agrandado al pasar el mouse
-      }
-    }
+    margin-top: 30px;
   }
 }
+.footer__links {
+  color: $color-gris;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  justify-content: center;
+  font-weight: normal;
+  font-size: 12px;
+  /* Aplica el color directamente a los enlaces */
+  a {
+    color: $color-gris;
+    text-decoration: none; /* Elimina el subrayado */
+    transition: color 0.3s ease;
+  }
+}
+.footer__lista__enlaces {
+  color: $color-gris;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start; // Centra los elementos en el eje transversal
+  padding-left: 100px;
+  gap: 20px;
+}
+.footer__imagenes__redes {
+  display: flex;
+  justify-content: left;
+  flex-direction: row;
+  gap: 10px;
+  margin-top: 10px;
+}
+a img {
+  width: 30px;
+  height: 30px;
+}
+.footer_imagenes_flecha {
+  display: flex;
+  justify-content: right; // Alinea el contenido (imagen) a la derecha
+  justify-content: flex-end; /* Alinea el contenido (imagen) a la derecha */
+  width: 100%; /* Ocupa todo el ancho del contenedor padre */
+  padding-right: 20px; /* Ajusta el espacio desde la derecha si es necesario */
+  height: auto;
+  &:hover {
+    transform: scale(1.1); // Efecto de agrandado al pasar el mouse
+  }
+}
+
 @media screen and (max-width: 380px) {
   .header__menu {
     display: none; /* Aseguramos que el menú no aparezca en pantallas de móviles */
@@ -264,6 +274,22 @@ h3 {
     text-align: left !important;
     padding-left: 50px; /* Ajusta la separación desde el borde izquierdo */
   }
+  .header__logo {
+    position: absolute;
+    left: 50%;
+    top: 5%;
+    transform: translateX(-50%);
+  }
+  .header__logo img {
+    display: flex;
+    align-items: center;
+  }
+  .scrolled .header__logo img {
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+  }
+
   .header__contenedor {
     margin-top: 80px;
     width: 100%;
@@ -271,61 +297,29 @@ h3 {
     justify-content: center; /* Centra los elementos dentro de este contenedor */
     align-items: center; /* Alinea el contenido verticalmente */
   }
-  .header__logo {
-    display: flex;
-    justify-content: center; /* Centra el logo horizontalmente */
-    align-items: center; /* Centra el logo verticalmente */
-    width: 100%; /* Hace que el logo ocupe todo el ancho disponible */
-  }
-  .header__logo img {
-    display: flex;
-    justify-content: center; /* Centra el logo horizontalmente */
-    align-items: center; /* Centra el logo verticalmente */
-    width: 100%; /* Hace que el logo ocupe todo el ancho disponible */
-    transition: opacity 0.5s ease, transform 0.5s ease;
-  }
-  .scrolled .header__logo img {
-    opacity: 0;
-    transform: translateY(-20px); /* Lo mueve hacia arriba y lo oculta */
-    pointer-events: none; /* Evita interacción */
-  }
 
   .header__title {
-    text-align: center; /* Centra el texto del título */
-    padding-top: 450px; /* Agrega espacio entre el logo y el título */
-    width: 100%; /* Asegura que el título ocupe el 100% del ancho */
+    margin-top: 150px;
+    display: inline-block;
+    width: 250px; /* Ajusta según el diseño */
+    text-align: center;
   }
 
   .header__title h1 {
-    font-size: 50px;
-    margin-left: -9%;
-    max-width: 100%; /* Asegura que el título ocupe el 100% del ancho disponible */
+    font-size: 36px !important;
+    margin-left: 68%;
     display: block; /* Asegura que el h1 se comporte como un bloque */
   }
 
   .header__boton {
     display: flex;
-    justify-content: flex-start; /* Mueve el botón a la izquierda */
-    margin-left: 20%; /* Ajusta la distancia del botón con respecto al borde izquierdo */
-    width: auto; /* Evita que ocupe todo el ancho */
+    justify-content: flex-start;
+    margin-left: 20%;
+    width: auto;
   }
-  /* Aseguramos que .main__envio esté fuera del grid para poder controlarla con flex */
   .main {
-    display: block; /* Desactiva el grid y usa bloque */
-  }
-  .main__imagen__container img {
-    width: 100%; /* Asegura que ocupe todo el ancho de la pantalla */
-  }
-
-  /* Aseguramos que main__envio ocupe toda la pantalla en una fila */
-  .main__envio {
-    display: flex; /* Usamos flexbox */
-    flex-direction: column; /* Los elementos estarán en una columna */
-    justify-content: center; /* Centra los elementos verticalmente */
-    align-items: center; /* Centra los elementos horizontalmente */
-    width: 100%; /* Asegura que ocupe todo el ancho de la pantalla */
-    padding: 20px; /* Espaciado interno */
-    gap: 20px; /* Espacio entre los elementos */
+    display: flex;
+    flex-direction: row;
   }
   .footer {
     display: flex;
@@ -337,13 +331,11 @@ h3 {
     display: flex;
     flex-direction: row; /* Los enlaces estarán en fila */
   }
-
   .footer__links {
     list-style: none;
     display: flex;
-    flex-direction: row; /* Los enlaces estarán en fila */
+    flex-direction: column; /* Los enlaces estarán en fila */
   }
-
   .footer__imagenes__redes {
     display: flex;
     justify-content: center;
@@ -351,7 +343,6 @@ h3 {
     gap: 10px; /* Espaciado entre las imágenes */
     margin-top: 10px;
   }
-
   .footer_imagenes_flecha {
     display: flex;
     justify-content: center; /* Centra la flecha */
