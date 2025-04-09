@@ -445,18 +445,38 @@ a img {
   .main__articles__grupo {
     background-color: $color-gris;
   }
-
-  .main__container {
-    padding: 4rem;
+  .main__disfruta h2 {
+    font-weight: bold;
+    font-size: 24px;
+    color: $color-verde;
+  }
+  .main__disfruta p {
+    color: $color-verde;
   }
   .main__fila {
-    flex-direction: row; /* Asegura que los elementos estén en fila */
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $color-gris;
   }
 
-  .main__disfruta,
+  .main__disfruta {
+    display: flex;
+    text-align: left;
+    padding-left: 280px;
+  }
   .main__imagen__container {
-    flex: 1; /* Ambos elementos ocuparán la mitad del espacio disponible */
-    max-width: 50%; /* Limita el ancho a 50% */
+    flex: 1;
+    max-width: 50%;
+  }
+
+  .main__imagen__container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
   }
 
   .footer__lista__enlaces {
